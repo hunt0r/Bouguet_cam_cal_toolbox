@@ -88,7 +88,11 @@ end;
 
 
 if ~exist('wintx') | ~exist('winty'),
-    clear_windows; % Clear all the window sizes (to re-initiate)
+    % Clear all the window sizes (to re-initiate)
+    for kk = 1:n_ima,
+        eval(['clear wintx_' num2str(kk)]);
+        eval(['clear winty_' num2str(kk)]);
+    end;
 end;
 
 
