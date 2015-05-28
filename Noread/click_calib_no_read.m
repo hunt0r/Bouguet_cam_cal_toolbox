@@ -200,8 +200,6 @@ for kk = ima_proc,
         end;
         
         [ny,nx,junk] = size(I);
-        Wcal = nx; % to avoid errors later
-        Hcal = ny; % to avoid errors later
         
         click_ima_calib_no_read;
         
@@ -249,7 +247,7 @@ for kk = 1:n_ima,
 end;
 
 
-string_save = 'save calib_data active_images ind_active wintx winty n_ima type_numbering N_slots first_num image_numbers format_image calib_name Hcal Wcal nx ny map dX_default dY_default dX dY';
+string_save = 'save calib_data active_images ind_active wintx winty n_ima type_numbering N_slots first_num image_numbers format_image calib_name nx ny map dX_default dY_default dX dY';
 
 for kk = 1:n_ima,
     string_save = [string_save ' X_' num2str(kk) ' x_' num2str(kk) ' n_sq_x_' num2str(kk) ' n_sq_y_' num2str(kk) ' wintx_' num2str(kk) ' winty_' num2str(kk) ' dX_' num2str(kk) ' dY_' num2str(kk)];

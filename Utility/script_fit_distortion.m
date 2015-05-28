@@ -29,6 +29,8 @@
 	 plot(XX(1,:),XX(2,:),'r+');
 	 title('The red crosses should be on the grid corners...');
 	 hold off;
+   
+   clear xu yu XXu xy_corners_undist
 	 
 	 satis_distort = input('Satisfied with distortion? ([]=no, other=yes) ');
 	 
@@ -37,3 +39,4 @@
 	 
       end;
       
+clear k_g satis_distort

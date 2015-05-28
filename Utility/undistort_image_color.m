@@ -172,3 +172,5 @@ else
     
     fprintf(1,'done\n')
 end
+
+clear ima_name ima_name2 number_ext

@@ -1,7 +1,7 @@
 % small program that computes the field of view of a camera (in degrees)
 
 if ~exist('fc')|~exist('cc')|~exist('nx')|~exist('ny'),
-   error('Need calibration results to compute FOV (fc,cc,Wcal,Hcal)');
+   error('Need calibration results to compute FOV (fc,cc,nx,ny)');
 end;
 
 FOV_HOR = 180 * ( atan((nx - (cc(1)+.5))/fc(1))  +  atan((cc(1)+.5)/fc(1))   )/pi;

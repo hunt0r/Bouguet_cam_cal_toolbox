@@ -18,9 +18,7 @@ s_jpg = size(l_jpg,1);
 l_jpeg = dir('*jpeg');
 s_jpeg = size(l_jpeg,1);
 
-s_tot = s_ras + s_bmp + s_tif + s_pgm + s_jpg + s_ppm + s_jpeg;
-
-if s_tot < 1,
+if (s_ras + s_bmp + s_tif + s_pgm + s_jpg + s_ppm + s_jpeg) < 1,
    fprintf(1,'No image in this directory in either ras, bmp, tif, pgm, ppm or jpg format. Change directory and try again.\n');
    break;
 end;
@@ -89,6 +87,7 @@ end;
 %string_save = 'save calib_data n_ima type_numbering N_slots image_numbers format_image calib_name first_num';
 
 %eval(string_save);
+%clear_string_save
 
 
 
@@ -106,3 +105,5 @@ if (Nima_valid~=0),
     
 end;
 
+clear l_ras l_bmp l_tif l_pgm l_ppm l_jpg l_jpeg s_ras s_bmp s_tif s_pgm ...
+    s_ppm s_jpg s_jpeg Nima_valid 

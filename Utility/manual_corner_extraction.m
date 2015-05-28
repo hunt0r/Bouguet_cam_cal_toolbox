@@ -106,6 +106,8 @@ for kk = ima_proc;
                 set(hx,'Xdata',x(1,:)+1,'Ydata',x(2,:)+1);
             end;
             
+            clear xi yi b xxi
+            
         end;
 
         eval(['wintx_' num2str(kk) ' = wintx;']);
@@ -139,3 +141,5 @@ end;
 fprintf(1,'\ndone\n');
 
 end;
+
+clear Np

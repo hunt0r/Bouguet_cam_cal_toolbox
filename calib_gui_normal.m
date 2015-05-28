@@ -36,7 +36,7 @@ cell_list{4,4} = {'Show calib results','show_calib_results;'};
 
 
 show_window(cell_list,fig_number,title_figure,130,18,0,'clean',12);
-
+clear cell_list fig_number title_figure
 
 %-------- End editable region -------------%
 %-------- End editable region -------------%

@@ -90,6 +90,8 @@ for ntrial = 1:N_runs,
    active_images = zeros(1,n_ima);
    active_images(ind_active_save(junk2(1:N_ima_active))) = ones(1,N_ima_active);
    
+   clear junk junk2
+   
    fc = fc_save;
    cc = cc_save;
    kc = kc_save;
@@ -161,6 +163,7 @@ for kk = 1:n_ima,
 end;
 
 eval(string_save);
+clear string_save
 
 end;
 

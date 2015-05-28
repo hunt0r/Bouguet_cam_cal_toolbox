@@ -90,3 +90,4 @@ set(gca,'Xtick',[])
 set(gca,'Ytick',[])
 axis('image');
 
+clear jj ii II II_mosaic II_row ker2 kk_c n_col n_row nn2

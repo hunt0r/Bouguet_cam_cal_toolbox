@@ -92,3 +92,5 @@ for kk = 1:n_ima,
 end;
 
 fprintf(1,'\ndone\n');
+
+clear ima_name ima_name2 ker2 number_ext

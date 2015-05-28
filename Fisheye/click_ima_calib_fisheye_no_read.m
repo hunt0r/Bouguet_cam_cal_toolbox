@@ -61,7 +61,7 @@ while (~grid_success)
     drawnow;
     hold off;
 
-    [Xc,good,bad,type] = cornerfinder([x';y'],I,winty,wintx); % the four corners
+    [Xc,~,~,~] = cornerfinder([x';y'],I,winty,wintx); % the four corners
 
     x = Xc(1,:)';
     y = Xc(2,:)';
@@ -158,7 +158,8 @@ while (~grid_success)
         text(x(iii),y(iii),num2str(iii));
     end;
     hold off;
-
+    clear hx hy hO;
+    
     if manual_squares,
         n_sq_x = input(['Number of squares along the X direction ([]=' num2str(n_sq_x_default) ') = ']); %6
         if isempty(n_sq_x), n_sq_x = n_sq_x_default; end;

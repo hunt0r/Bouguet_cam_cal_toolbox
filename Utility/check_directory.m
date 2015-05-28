@@ -188,3 +188,5 @@ else
     
 end;
 
+clear filenamepp name pp ppp iii l loc_ext loc_extension Nl string_length ...
+    string_num indices length_name

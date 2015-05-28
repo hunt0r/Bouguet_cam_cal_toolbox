@@ -188,6 +188,7 @@ for kk = ima_proc,
                 text(xYc + delta * uY(1)+1 ,yYc + delta * uY(2)+1,'Y','color','g','Fontsize',14,'HorizontalAlignment','center');
                 text(xo + delta * uO(1) +1,yo + delta * uO(2)+1,'O','color','g','Fontsize',14);
 
+                clear delta;
             end;
 
             

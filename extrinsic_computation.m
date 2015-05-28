@@ -146,7 +146,7 @@ set(h4,'Color','g','FontSize',14);
 plot(x_basis(1,:)+1,x_basis(2,:)+1,'g-','linewidth',2);
 title('Image points (+) and reprojected grid points (o)');
 hold off;
-
+clear h h2 h3 h4
 
 fprintf(1,'\n\nExtrinsic parameters:\n\n');
 fprintf(1,'Translation vector: Tc_ext = [ %3.6f \t %3.6f \t %3.6f ]\n',Tc_ext);
@@ -183,4 +183,5 @@ eval(['x_' num2str(kk) ' = x_ext;']);
       
 eval(['n_sq_x_' num2str(kk) ' = n_sq_x;']);
 eval(['n_sq_y_' num2str(kk) ' = n_sq_y;']);
-   
+
+clear ima_name dxpos dypos dzpos

@@ -45,6 +45,7 @@ for count = 1:4,
     plot(x,y,'-','color',[ 1.000 0.314 0.510 ],'linewidth',2);
     drawnow;
 end;
+clear count xi yi xxi
 plot([x;x(1)],[y;y(1)],'-','color',[ 1.000 0.314 0.510 ],'linewidth',2);
 drawnow;
 hold off;
@@ -52,7 +53,7 @@ hold off;
 
 %[x,y] = ginput4(4);
 
-[Xc,good,bad,type] = cornerfinder([x';y'],I,winty,wintx); % the four corners
+[Xc,~,~,~] = cornerfinder([x';y'],I,winty,wintx); % the four corners
 
 x = Xc(1,:)';
 y = Xc(2,:)';
@@ -78,11 +79,13 @@ y = y(ind);
 x1= x(1); x2 = x(2); x3 = x(3); x4 = x(4);
 y1= y(1); y2 = y(2); y3 = y(3); y4 = y(4);
 
+clear x_mean y_mean x_v y_v junk ind theta;
 
 % Find center:
 p_center = cross(cross([x1;y1;1],[x3;y3;1]),cross([x2;y2;1],[x4;y4;1]));
 x5 = p_center(1)/p_center(3);
 y5 = p_center(2)/p_center(3);
+clear p_center
 
 % center on the X axis:
 x6 = (x3 + x4)/2;
@@ -119,7 +122,7 @@ hy=text(x7 + delta*vY(1), y7 + delta*vY(2),'Y');
 set(hy,'color','g','Fontsize',14);
 hO=text(x4 + delta * vO(1) ,y4 + delta*vO(2),'O','color','g','Fontsize',14);
 hold off;
-
+clear hx hy hO;
 
 if manual_squares,
     
@@ -193,12 +196,14 @@ a01 = [x(4);y(4);1];
 
 [Homo,Hnorm,inv_Hnorm] = compute_homography([a00 a10 a11 a01],[0 1 1 0;0 0 1 1;1 1 1 1]);
 
+clear a00 a10 a11 a01;
 
 % Build the grid using the planar collineation:
 
 x_l = ((0:n_sq_x)'*ones(1,n_sq_y+1))/n_sq_x;
 y_l = (ones(n_sq_x+1,1)*(0:n_sq_y))/n_sq_y;
 pts = [x_l(:) y_l(:) ones((n_sq_x+1)*(n_sq_y+1),1)]';
+clear x_l y_l
 
 XX = Homo*pts;
 XX = XX(1:2,:) ./ (ones(2,1)*XX(3,:));
@@ -232,6 +237,8 @@ if quest_distort,
     f_g = mean(f_g);
     script_fit_distortion;
 end;
+
+clear W L quest_distort
 %%%%%%%%%%%%%%%%%%%%% END ADDITIONAL STUFF IN THE CASE OF HIGHLY DISTORTED IMAGES %%%%%%%%%%%%%
 
 
@@ -244,7 +251,7 @@ disp('Corner extraction...');
 
 grid_pts = cornerfinder(XX,I,winty,wintx); %%% Finds the exact corners at every points!
 
-
+clear XX
 
 %save all_corners x y grid_pts
 
@@ -282,6 +289,7 @@ title('Extracted corners');
 zoom on;
 drawnow;
 hold off;
+clear h h2 h3 ind_corners ind_orig x_box_kk y_box_kk Xc xorig yorig
 
 
 Xi = reshape(([0:n_sq_x]*dX)'*ones(1,n_sq_y+1),Np,1)';
@@ -290,12 +298,12 @@ Zi = zeros(1,Np);
 
 Xgrid = [Xi;Yi;Zi];
 
-
 % All the point coordinates (on the image, and in 3D) - for global optimization:
 
 x = grid_pts;
 X = Xgrid;
 
+clear Np Xgrid Xi Yi Zi
 
 % Saves all the data into variables:
 
@@ -310,3 +318,5 @@ eval(['X_' num2str(kk) ' = X;']);
 
 eval(['n_sq_x_' num2str(kk) ' = n_sq_x;']);
 eval(['n_sq_y_' num2str(kk) ' = n_sq_y;']);
+
+clear delta dxpos dypos grid_pts vX vY vO

@@ -92,14 +92,6 @@ while (i <= n_ima), % & (~no_image_file),
                 end;
                 
                 
-                if size(I,1)~=480,
-                    small_calib_image = 1;
-                else
-                    small_calib_image = 0;
-                end;
-                
-                [Hcal,Wcal] = size(I); 	% size of the calibration image
-                
                 [ny,nx] = size(I);
                 
                 one_image_read = 1;

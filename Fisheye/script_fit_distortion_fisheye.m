@@ -63,3 +63,4 @@ XX(2,:) = f_g*XX(2,:) + c_g(2);
 	 
       end;
       
+clear satis_distort

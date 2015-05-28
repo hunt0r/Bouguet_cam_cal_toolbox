@@ -121,13 +121,6 @@ else
    
    fprintf(1,'\n');
 
-   if size(I_1,1)~=480,
-   	small_calib_image = 1;
-	else
-   	small_calib_image = 0;
-	end;
-   
-   [Hcal,Wcal] = size(I_1); 	% size of the calibration image
    
    [ny,nx] = size(I_1);
    
@@ -135,9 +128,10 @@ else
    
    map = gray(256);
    
-	%string_save = 'save calib_data n_ima type_numbering N_slots image_numbers format_image calib_name Hcal Wcal nx ny map small_calib_image';
+	%string_save = 'save calib_data n_ima type_numbering N_slots image_numbers format_image calib_name nx ny map';
 
 	%eval(string_save);
+  %clear string_save
 
 	disp('done');
 	%click_calib;
@@ -148,3 +142,4 @@ if ~(exist('map')==1), map = gray(256); end;
 
 active_images = images_read;
 
+clear clickname i Ii ima_read_name number_ext

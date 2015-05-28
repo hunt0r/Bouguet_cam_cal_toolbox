@@ -20,6 +20,7 @@ else
       active_images = active_images(1:n_ima);
    end;
 end;
+clear n_act
 
 ind_active = find(active_images);
 
@@ -161,4 +162,4 @@ end;
    fprintf(1,'\n\nYou may now run ''Calibration'' to recalibrate based on this new set of images.\n');
    
    
-   
+clear ii

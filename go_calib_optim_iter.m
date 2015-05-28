@@ -360,7 +360,7 @@ while (change > 1e-9)&(iter < MaxIter),
         eval(['X_kk = X_' num2str(kk) ';']);
         eval(['x_kk = x_' num2str(kk) ';']);
         
-        Np = N_points_views(kk);
+        % Np = N_points_views(kk);
         
         if ~est_aspect_ratio,
             [x,dxdom,dxdT,dxdf,dxdc,dxdk,dxdalpha] = project_points2(X_kk,omckk,Tckk,f(1),c,k,alpha);
@@ -551,7 +551,7 @@ for kk = ind_active,
     
     eval(['X_kk = X_' num2str(kk) ';']);
     
-    Np = N_points_views(kk);
+    % Np = N_points_views(kk);
     
     %[x,dxdom,dxdT,dxdf,dxdc,dxdk,dxdalpha] = project_points2(X_kk,omckk,Tckk,fc,cc,kc,alpha_c);
     

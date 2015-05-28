@@ -76,9 +76,10 @@ while (~grid_success)
         wintx = wintx_save;
         winty = winty_save;
 
-        [Xc,good,bad,type] = cornerfinder([x';y'],I,winty,wintx); % the four corners
+        [Xc,~,bad,type] = cornerfinder([x';y'],I,winty,wintx); % the four corners
 
         bad_clicks = (sum(bad)>0);
+        clear bad;
 
     end;
 
@@ -165,7 +166,8 @@ while (~grid_success)
         text(x(iii),y(iii),num2str(iii));
     end;
     hold off;
-
+    clear hx hy hO;
+    
     if manual_squares,
         n_sq_x = input(['Number of squares along the X direction ([]=' num2str(n_sq_x_default) ') = ']); %6
         if isempty(n_sq_x), n_sq_x = n_sq_x_default; end;
@@ -306,6 +308,8 @@ if quest_distort,
     f_g = mean(f_g);
     script_fit_distortion;
 end;
+
+clear W L
 %%%%%%%%%%%%%%%%%%%%% END ADDITIONAL STUFF IN THE CASE OF HIGHLY DISTORTED IMAGES %%%%%%%%%%%%%
 
 end;

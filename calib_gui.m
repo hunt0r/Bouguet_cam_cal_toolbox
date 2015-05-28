@@ -27,3 +27,5 @@ cell_list{3,1} = {'Exit',['disp(''Bye. To run again, type calib_gui.''); close('
 
 
 show_window(cell_list,fig_number,title_figure,290,18,0,'clean',12);
+
+clear title_figure

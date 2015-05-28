@@ -86,12 +86,6 @@ if ~exist('dY'),
     dY = dX;
 end;
 
-if ~exist('Hcal'),
-    Hcal = [];
-end;
-if ~exist('Wcal'),
-    Wcal = [];
-end;
 if ~exist('map'),
     map = [];
 end;
@@ -137,10 +131,6 @@ for kk = 1:n_ima,
    if ~exist(['Rc_' num2str(kk)]),
     eval(['Rc_' num2str(kk) ' = rodrigues(omc_' num2str(kk) ');']);
    end;
-end;
-
-if ~exist('small_calib_image'),
-    small_calib_image = 0;
 end;
 
 if ~exist('check_cond'),
@@ -189,7 +179,7 @@ if cont_save,
         
         fprintf(1,['\nSaving calibration results under ' save_name '.mat\n']);
         
-        string_save = ['save ' save_name ' center_optim param_list active_images ind_active est_alpha est_dist est_aspect_ratio est_fc fc kc cc alpha_c fc_error kc_error cc_error alpha_c_error  err_std ex x y solution solution_init wintx winty n_ima type_numbering N_slots small_calib_image first_num image_numbers format_image calib_name Hcal Wcal nx ny map dX_default dY_default KK inv_KK dX dY wintx_default winty_default no_image check_cond MaxIter'];
+        string_save = ['save ' save_name ' center_optim param_list active_images ind_active est_alpha est_dist est_aspect_ratio est_fc fc kc cc alpha_c fc_error kc_error cc_error alpha_c_error  err_std ex x y solution solution_init wintx winty n_ima type_numbering N_slots first_num image_numbers format_image calib_name nx ny map dX_default dY_default KK inv_KK dX dY wintx_default winty_default no_image check_cond MaxIter'];
         
         for kk = 1:n_ima,
             string_save = [string_save ' X_' num2str(kk) ' x_' num2str(kk) ' y_' num2str(kk) ' ex_' num2str(kk) ' omc_' num2str(kk) ' Rc_' num2str(kk) ' Tc_' num2str(kk) ' omc_error_' num2str(kk) ' Tc_error_' num2str(kk) ' H_' num2str(kk) ' n_sq_x_' num2str(kk) ' n_sq_y_' num2str(kk) ' wintx_' num2str(kk) ' winty_' num2str(kk) ' dX_' num2str(kk) ' dY_' num2str(kk)];

@@ -11,6 +11,7 @@ if n_ima ~= 0,
             active_images = active_images(1:n_ima);
         end;
     end;
+    clear n_act
     
     ind_active = find(active_images);
     

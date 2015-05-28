@@ -14,6 +14,7 @@ var2fix = 'map';
 
 fixvariable;
 
+clear var2fix
 
 if ~exist('n_ima'),
     data_calib;
@@ -142,7 +143,6 @@ else
     
 end;
 
-
 if ~dont_ask,
     fprintf(1,'Do you want to use the automatic square counting mechanism (0=[]=default)\n');
     manual_squares = input('  or do you always want to enter the number of squares manually (1,other)? ');
@@ -202,13 +202,14 @@ for kk = 1:n_ima,
     end;
 end;
 
-string_save = 'save calib_data active_images ind_active wintx winty n_ima type_numbering N_slots first_num image_numbers format_image calib_name Hcal Wcal nx ny map dX_default dY_default dX dY wintx_default winty_default';
+string_save = 'save calib_data active_images ind_active wintx winty n_ima type_numbering N_slots first_num image_numbers format_image calib_name nx ny map dX_default dY_default dX dY wintx_default winty_default';
 
 for kk = 1:n_ima,
     string_save = [string_save ' X_' num2str(kk) ' x_' num2str(kk) ' n_sq_x_' num2str(kk) ' n_sq_y_' num2str(kk) ' wintx_' num2str(kk) ' winty_' num2str(kk) ' dX_' num2str(kk) ' dY_' num2str(kk)];
 end;
 
 eval(string_save);
+clear string_save;
 
 disp('done');
 
@@ -216,3 +217,4 @@ return;
 
 go_calib_optim;
 
+clear kk_first

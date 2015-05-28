@@ -159,3 +159,5 @@ for kk = 1:n_seq,
     
     
 end;
+
+clear ii ima_name ima_name2

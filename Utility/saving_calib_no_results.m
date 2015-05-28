@@ -111,6 +111,7 @@ if cont_save,
     %fprintf(1,'To load later click on Load\n');
     
     eval(string_save);
+    clear string_save
     
     fprintf(1,'done\n');
     
