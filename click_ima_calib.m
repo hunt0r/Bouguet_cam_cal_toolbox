@@ -1,4 +1,7 @@
 % Cleaned-up version of init_calib.m
+disp('Ready to process next image, press Enter to continue...');
+pause();
+disp('');
 
 fprintf(1,'\nProcessing image %d...\n',kk);
 
@@ -196,7 +199,7 @@ a01 = [x(4);y(4);1];
 
 [Homo,Hnorm,inv_Hnorm] = compute_homography([a00 a10 a11 a01],[0 1 1 0;0 0 1 1;1 1 1 1]);
 
-clear a00 a10 a11 a01;
+clear a00 a10 a11 a01 x1 x2 x3 x4 x5 x6 x7 y1 y2 y3 y4 y5 y6 y7
 
 % Build the grid using the planar collineation:
 
@@ -238,7 +241,7 @@ if quest_distort,
     script_fit_distortion;
 end;
 
-clear W L quest_distort
+clear W L quest_distort y
 %%%%%%%%%%%%%%%%%%%%% END ADDITIONAL STUFF IN THE CASE OF HIGHLY DISTORTED IMAGES %%%%%%%%%%%%%
 
 

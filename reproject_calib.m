@@ -21,7 +21,7 @@ check_active_images;
 
 % Color code for each image:
 
-colors = 'brgkcm';
+colors = 'brgcm';
 
 % Reproject the patterns on the images, and compute the pixel errors:
 
