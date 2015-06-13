@@ -75,7 +75,7 @@ figure(5);
 for kk = ima_proc, %1:n_ima,
    if exist(['y_' num2str(kk)]),
    if active_images(kk) & eval(['~isnan(y_' num2str(kk) '(1,1))']),
-	   eval(['plot(ex_' num2str(kk) '(1,:),ex_' num2str(kk) '(2,:),''' colors(rem(kk-1,6)+1) '+'');']);
+	   eval(['plot(ex_' num2str(kk) '(1,:),ex_' num2str(kk) '(2,:),''' colors(rem(kk-1,5)+1) '+'');']);
       hold on;
    end;
    end;
@@ -194,8 +194,8 @@ for kk = ima_proc,
             
             title(['Image ' num2str(kk) ' - Image points (+) and reprojected grid points (o)']);
             eval(['plot(x_' num2str(kk) '(1,:)+1,x_' num2str(kk) '(2,:)+1,''r+'');']);
-            eval(['plot(y_' num2str(kk) '(1,:)+1,y_' num2str(kk) '(2,:)+1,''' colors(rem(kk-1,6)+1) 'o'');']);
-            eval(['quiver(y_' num2str(kk) '(1,:)+1,y_' num2str(kk) '(2,:)+1,ex_' num2str(kk) '(1,:),ex_' num2str(kk) '(2,:),1,''' colors(rem(kk-1,6)+1) ''');']); 
+            eval(['plot(y_' num2str(kk) '(1,:)+1,y_' num2str(kk) '(2,:)+1,''' colors(rem(kk-1,5)+1) 'o'');']);
+            eval(['quiver(y_' num2str(kk) '(1,:)+1,y_' num2str(kk) '(2,:)+1,ex_' num2str(kk) '(1,:),ex_' num2str(kk) '(2,:),1,''' colors(rem(kk-1,5)+1) ''');']); 
             zoom on;
             axis([1 nx 1 ny]);
             hold off;
