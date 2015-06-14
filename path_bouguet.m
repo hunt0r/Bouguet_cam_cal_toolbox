@@ -1,6 +1,14 @@
 w = what('./');
 addpath(w.path);
-% w = what('./Calib_analysis');
+w = what('./Calib_analysis');
+addpath(w.path);
+w = what('./Fisheye');
+addpath(w.path);
+% w = what('./Noread');
+% addpath(w.path);
+% w = what('./Stereo');
+% addpath(w.path);
+% w = what('./Examples');
 % addpath(w.path);
 w = what('./Functions');
 addpath(w.path);
