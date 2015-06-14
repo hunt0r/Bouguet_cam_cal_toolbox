@@ -4,6 +4,8 @@ w = what('./Calib_analysis');
 addpath(w.path);
 w = what('./Fisheye');
 addpath(w.path);
+w = what('./Fisheye/Functions');
+addpath(w.path);
 % w = what('./Noread');
 % addpath(w.path);
 % w = what('./Stereo');
