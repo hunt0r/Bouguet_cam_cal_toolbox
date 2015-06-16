@@ -105,17 +105,18 @@ active_images(omit_ndx) = 0; % Omit the desired image
 % Run the calibration
 if input_p.fisheye == 1
     go_calib_optim_fisheye_no_read;
+    std_or_fisheye = 'fisheye';
 else
     go_calib_optim;
+    std_or_fisheye = 'std';
 end
 
 % Compute the error
 if strcmp(input_p.err_metric, 'max_ere')
-    % HGM TODO
-    % ctx = [f; cc; alpha_c; k]; % Compile the param vector
-    % sigctx = [fc_error; cc_error; alpha_c_error; kc_error]; % param uncertainty
-    % calib_error = calc_max_ere(ctx, sigctx); % Calc error
-    err_val = omit_ndx; % temporary, fixme
+    p = [fc; cc; alpha_c; kc];
+    sigp = [fc_error; cc_error; alpha_c_error; kc_error]/3; % want 1 std
+                                                            % dev, not 3
+    err_val = calc_max_ere(p, sigp, std_or_fisheye);
 elseif strcmp(input_p.err_metric, 'norm_kc_error')
     err_val = norm(kc_error);
 end
