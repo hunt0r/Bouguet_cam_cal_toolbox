@@ -9,3 +9,7 @@ greedy_results.fig
 best_93_*.mat
 best_94_*.mat
 Calib_Results_94*
+*.jpg
+*.png
+*.fig
+*.mat
